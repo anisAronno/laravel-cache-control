@@ -15,10 +15,10 @@ class CacheControl
     /**
      * Initialization cache instance
      *
-     * @param  string|null  $key
+     * @param  array|string|null  $key
      * @return Cache|TaggedCache
      */
-    public static function init(string $key = null)
+    public static function init($key = null)
     {
         if (Cache::supportsTags() && !is_null($key)) {
             return Cache::tags($key);
@@ -30,10 +30,10 @@ class CacheControl
     /**
      * Forget Cache Key
      *
-     * @param  string  $key
+     * @param  string|array $key
      * @return boolean
      */
-    public static function forgetCache(string $key): bool
+    public static function forgetCache($key): bool
     {
         if (Cache::supportsTags()) {
             return  Cache::tags($key)->flush();
