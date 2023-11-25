@@ -15,7 +15,7 @@ class CacheControl
     /**
      * Initialization cache instance
      *
-     * @param  array|string|null  $key
+     * @param  string|array  $key
      * @return Cache|TaggedCache
      */
     public static function init($key = null)
@@ -49,7 +49,7 @@ class CacheControl
      * @param  string  $key
      * @return boolean
      */
-    private static function forgetCacheByKey(string $key): bool
+    private static function forgetCacheByKey($key): bool
     {
         try {
             $allKeys = self::getCacheKeys($key);
@@ -71,10 +71,10 @@ class CacheControl
 
     /**
      * Get ALl Cache Key
-     * @param  string|null  $key
+     * @param  string|array  $key
      * @return array
       */
-    private static function getCacheKeys(string $key = null): array
+    private static function getCacheKeys($key = null): array
     {
         switch (Cache::getDefaultDriver()) {
             case 'file':
@@ -127,10 +127,10 @@ class CacheControl
     /**
      * Get Redis cache key
      *
-     * @param  string|null  $key
+     * @param  string|array  $key
      * @return array
      */
-    private static function getRedisCacheKeys(string $key = null): array
+    private static function getRedisCacheKeys($key = null): array
     {
         try {
             $cacheKeys = Redis::connection('cache')->keys('*');
@@ -158,10 +158,10 @@ class CacheControl
     /**
      * get memcache key
      *
-     * @param  string|null  $key
+     * @param  string|array  $key
      * @return array
      */
-    private static function getMemcachedCacheKeys(string $key = null): array
+    private static function getMemcachedCacheKeys($key = null): array
     {
         try {
             $cacheKeys = [];

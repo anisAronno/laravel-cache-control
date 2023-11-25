@@ -1,7 +1,7 @@
 {
     "name": "anisaronno/laravel-cache-control",
     "description": "A Laravel package for efficient caching control and management.",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "license": "MIT",
     "keywords": [
         "laravel-cache",
